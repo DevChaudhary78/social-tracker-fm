@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    /* Dark Theme */
+    --very-dark-blue-bg: hsl(230, 17%, 14%);
+    --very-dark-blue-top-bg: hsl(232, 19%, 15%);
+    --dark-desaturated-blue-card-bg: hsl(228, 28%, 20%);
+    --desaturated-blue-text: hsl(228, 34%, 66%);
+    --white-text: hsl(0, 0%, 100%);
+
+    /* Light Theme */
+    --white-bg: hsl(0, 0%, 100%);
+    --very-pale-blue-top-bg: hsl(225, 100%, 98%);
+    --light-grayish-blue-card-bg: hsl(227, 47%, 96%);
+    --dark-grayish-blue-text: hsl(228, 12%, 44%);
+    --very-dark-blue-text: hsl(230, 17%, 14%);
+
+    /* Card Top lighting */
+    --top-color-fb: hsl(208, 92%, 53%);
+    --top-color-twitter: hsl(203, 89%, 53%);
+    --top-color-insta: hsl(37, 97%, 70%);
+    --top-color-yt: hsl(348, 97%, 39%);
+
+    /* Changes */
+    --lime-green: hsl(163, 72%, 41%);
+    --bright-red: hsl(356, 69%, 56%);
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 2rem;
+    background-color: var(--very-dark-blue-bg);
+    height: 100vh;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+
+    margin: 0 10%;
+
+    color: var(--desaturated-blue-text);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 15%;
+}
+
+header > #main-title > h1, .card > .followers > h2 {
+    color: var(--white-text)
+}
+
+/* Main Grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.card {
+    height: 300px;
+    width: 325px;
+    background-color: var(--dark-desaturated-blue-card-bg);
+
+    border-radius: 3%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+#fb {
+    border-top: 5px solid var(--top-color-fb);
+}
+
+#yt {
+    border-top: 5px solid var(--top-color-yt);
+}
+
+#twitter {
+    border-top: 5px solid var(--top-color-twitter);
+}
+
+#insta {
+    border-top: 5px solid var(--top-color-insta);
+}
+
+.card > .social-id {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 10%;
+}
+
+.card > .social-id > img, p {
+    margin: 0 3px;
+}
+
+.card > .followers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card > .followers > h2 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.card > .followers > p {
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.changes {
+    font-size: small;
+    color: var(--lime-green);
+
+    position: relative;
+}
+
+.changes > p::before {
+    content: url(./images/icon-up.svg);
+    position: absolute;
+    left: -10px;
+    top: -2px;
+}
+
+.overview {
+    margin: 2rem 0;
+}
+
+.overview > h2 {
+    font-size: 1.5rem;
+    color: var(--white-text);
+}
+
+.grid-container-overview {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.card-overview {
+    height: 150px;
+    width: 325px;
+    margin: 1rem 0;
+    border-radius: 3%;
+    background-color: var(--dark-desaturated-blue-card-bg);
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    place-items: center;
+}
+
+.overview-views-today {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--white-text);
+}
+
+/* .card-overview {
+    margin: 2rem 0;
+    height: 150px;
+    width: 325px;
+
+    background-color: var(--dark-desaturated-blue-card-bg);
+
+    padding: 1rem;
+    
+    border-radius: 3%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} */
+
+/* SWITCH */
+/* The switch - the box around the slider */
+
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+ }
+  
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
