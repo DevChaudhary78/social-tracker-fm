@@ -32,16 +32,20 @@
     box-sizing: border-box;
 }
 
+.dark {
+    background-color: var(--very-dark-blue-bg);
+}
+
 body {
     padding: 2rem;
-    background-color: var(--very-dark-blue-bg);
+    background-color: var(--white-bg);
     height: 100vh;
     font-size: 14px;
     font-family: 'Inter', sans-serif;
 
     margin: 0 10%;
 
-    color: var(--desaturated-blue-text);
+    color: var(--dark-grayish-blue-text);
 }
 
 header {
@@ -52,11 +56,11 @@ header {
 }
 
 header > #main-title > h1, .card > .followers > h2 {
-    color: var(--white-text)
+    color: var(--very-dark-blue-text)
 }
 
 /* Main Grid */
-.grid-container {
+#grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
@@ -67,7 +71,7 @@ header > #main-title > h1, .card > .followers > h2 {
     max-width: 325px;
 
     min-height: 200px;
-    background-color: var(--dark-desaturated-blue-card-bg);
+    background-color: var(--light-grayish-blue-card-bg);
 
     border-radius: 3%;
 
@@ -145,13 +149,21 @@ header > #main-title > h1, .card > .followers > h2 {
     margin-top: 1rem;
 }
 
+#down {
+    color: var(--bright-red);
+}
+
+#down > p::before {
+    content: url(./images/icon-down.svg);
+}
+
 .overview {
     margin: 2rem 0;
 }
 
 .overview > h2 {
     font-size: 1.5rem;
-    color: var(--white-text);
+    color: var(--very-dark-blue-text);
 }
 
 .grid-container-overview {
@@ -169,7 +181,7 @@ header > #main-title > h1, .card > .followers > h2 {
     min-height: 125px;
 
     border-radius: 3%;
-    background-color: var(--dark-desaturated-blue-card-bg);
+    background-color: var(--light-grayish-blue-card-bg);
 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -180,7 +192,7 @@ header > #main-title > h1, .card > .followers > h2 {
 .overview-views-today {
     font-size: 2.2rem;
     font-weight: bold;
-    color: var(--white-text);
+    color: var(--very-dark-blue-text);
 }
 
 /* SWITCH */
