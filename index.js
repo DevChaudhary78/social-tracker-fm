@@ -58,6 +58,110 @@ function createCard(logo, altText, name, followers, changes, isUp, topId) {
   return card;
 }
 
+function createOverviewCards() {
+    const overViewCardsData = [
+        {
+            attr: "Page Views",
+            imgSrc: "./images/icon-facebook.svg",
+            data: 87,
+            change: 3,
+            isUp: true,
+        },
+        {
+            attr: "Likes",
+            imgSrc: "./images/icon-facebook.svg",
+            data: 52,
+            change: 2,
+            isUp: false,
+        },
+        {
+            attr: "Likes",
+            imgSrc: "./images/icon-instagram.svg",
+            data: 5462,
+            change: 2257,
+            isUp: true,
+        },
+        {
+            attr: "Profile Views",
+            imgSrc: "./images/icon-instagram.svg",
+            data: 52000,
+            change: 1375,
+            isUp: true,
+        },
+        {
+            attr: "Retweets",
+            imgSrc: "./images/icon-twitter.svg",
+            data: 117,
+            change: 303,
+            isUp: true,
+        },
+        {
+            attr: "Likes",
+            imgSrc: "./images/icon-twitter.svg",
+            data: 507,
+            change: 553,
+            isUp: true,
+        },
+        {
+            attr: "Likes",
+            imgSrc: "./images/icon-youtube.svg",
+            data: 107,
+            change: 19,
+            isUp: false,
+        },
+        {
+            attr: "Total Views",
+            imgSrc: "./images/icon-youtube.svg",
+            data: 1407,
+            change: 12,
+            isUp: false,
+        },
+    ]
+    const gridcontaineroverview = document.getElementById("grid-container-overview")
+
+    overViewCardsData.forEach((card) => {
+        const overviewcard = document.createElement("div")
+        overviewcard.className = "card-overview"
+
+        const pageviewslabel = document.createElement("p")
+        pageviewslabel.innerText = card.attr 
+
+        overviewcard.appendChild(pageviewslabel)
+
+        const socialimg = document.createElement("img")
+        socialimg.src = card.imgSrc
+        overviewcard.appendChild(socialimg)
+
+        const dataNos = document.createElement("p")
+
+        if(card.data > 10000) {
+            dataNos.innerText = card.data/1000 + "k"
+            dataNos.className = "overview-views-today"
+        } else {
+            dataNos.innerText = card.data
+            dataNos.className = "overview-views-today"
+        }
+
+        overviewcard.appendChild(dataNos)
+
+        const changeData = document.createElement("p")
+        changeData.innerText = card.change + "%"
+
+        const changeDataContainer = document.createElement("div")
+        changeDataContainer.appendChild(changeData)
+        changeDataContainer.className = "changes"
+
+        if(!card.isUp) {
+            changeDataContainer.id = "down"
+        }
+
+        overviewcard.appendChild(changeDataContainer)
+
+        gridcontaineroverview.appendChild(overviewcard)
+    })
+
+}
+
 function renderCards() {
   const mainCards = [
     {
@@ -113,3 +217,4 @@ function renderCards() {
 }
 
 renderCards();
+createOverviewCards();
