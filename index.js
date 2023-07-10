@@ -25,6 +25,7 @@ function createCard(logo, altText, name, followers, changes, isUp, topId) {
   followersContainer.className = "followers";
 
   const followersTotal = document.createElement("h2");
+  followersTotal.className = "followers-total-count"
   if(followers > 10000) {
     followers /= 1000;
     followersTotal.innerText = followers + "K"
@@ -215,6 +216,68 @@ function renderCards() {
     gridContainer.appendChild(cardElement);
   });
 }
+
+const themeSwitcher = document.getElementById("theme-switcher-input")
+
+let dark = false
+
+themeSwitcher.addEventListener("click", () => {
+    const body = document.getElementById("body")
+    const r = getComputedStyle(document.body)
+    const socialMainTitle = document.getElementById("social-main-title")
+    const overviewTitle = document.getElementById("overview-title")
+    const totalFollowers = document.getElementById("total-followers")
+    const cards = Array.from(document.getElementsByClassName("card"))
+    const followersTotalCount = Array.from(document.getElementsByClassName("followers-total-count"))
+    const overviewCards = Array.from(document.getElementsByClassName("card-overview"))
+    const overviewViewsToday = Array.from(document.getElementsByClassName("overview-views-today"))
+
+    if(!dark) {
+        dark = !dark
+        body.style.background = r.getPropertyValue("--very-dark-blue-bg")
+        socialMainTitle.style.color = r.getPropertyValue("--white-text")
+        overviewTitle.style.color = r.getPropertyValue("--white-text")
+        totalFollowers.style.color = r.getPropertyValue("--desaturated-blue-text")
+
+        cards.forEach(card => {
+            card.style.background = r.getPropertyValue("--dark-desaturated-blue-card-bg") 
+        });
+
+        followersTotalCount.forEach(count => {
+            count.style.color = r.getPropertyValue("--white-text")
+        })
+
+        overviewCards.forEach(card => {
+            card.style.background = r.getPropertyValue("--dark-desaturated-blue-card-bg") 
+        });
+        overviewViewsToday.forEach(count => {
+            count.style.color = r.getPropertyValue("--white-text")
+        })
+    } else {
+        dark = !dark
+        body.style.background = r.getPropertyValue("--white-bg")
+        socialMainTitle.style.color = r.getPropertyValue("--very-dark-blue-text")
+        overviewTitle.style.color = r.getPropertyValue("--very-dark-blue-text")
+        totalFollowers.style.color = r.getPropertyValue("--dark-grayish-blue-text")
+
+
+        cards.forEach(card => {
+            card.style.background = r.getPropertyValue("--light-grayish-blue-card-bg");
+        });
+        followersTotalCount.forEach(count => {
+            count.style.color = r.getPropertyValue("--very-dark-blue-text")
+        })
+        overviewCards.forEach(card => {
+            card.style.background = r.getPropertyValue("--light-grayish-blue-card-bg");
+        });
+
+        overviewViewsToday.forEach(count => {
+            count.style.color = r.getPropertyValue("--very-dark-blue-text")
+        })
+    }
+
+})
+
 
 renderCards();
 createOverviewCards();

@@ -59,6 +59,10 @@ header > #main-title > h1, .card > .followers > h2 {
     color: var(--very-dark-blue-text)
 }
 
+.dark-title {
+    color: var(--white-text)
+}
+
 /* Main Grid */
 #grid-container {
     display: grid;
@@ -81,6 +85,10 @@ header > #main-title > h1, .card > .followers > h2 {
     align-items: center;
 
     position: relative;
+}
+
+.dark-card {
+    background-color: var(--dark-desaturated-blue-card-bg);
 }
 
 #fb {
@@ -201,8 +209,8 @@ header > #main-title > h1, .card > .followers > h2 {
 .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 50px;
+    height: 28px;
  }
   
 /* Hide default HTML checkbox */
@@ -228,8 +236,8 @@ header > #main-title > h1, .card > .followers > h2 {
 .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
+    height: 20px;
+    width: 20px;
     left: 4px;
     bottom: 4px;
     background-color: white;
@@ -246,9 +254,9 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
 }
 
 /* Rounded sliders */
